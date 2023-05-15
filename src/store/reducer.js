@@ -36,7 +36,7 @@ function reducer(state, action) {
       };
     case DELETE_TODO_INPUT:
       let newTodos = [...state.todos];
-      newTodos.splice(action.payload, 1);
+      newTodos.splice(action?.payload, 1);
       localStorage.setItem("todos", JSON.stringify(newTodos));
       return {
         ...state,
@@ -44,7 +44,7 @@ function reducer(state, action) {
       };
     case TOGGLE_COMPLETE:
       console.log(i++);
-      const todo = todos[action.payload];
+      const todo = todos[action?.payload];
 
       todo.completed = !todo.completed;
       const todoCompleted = [...state.todos];
@@ -56,14 +56,14 @@ function reducer(state, action) {
       };
     // break;
     case CHANGE_FILTER:
-      console.log(action.payload);
+      console.log(action?.payload);
       return {
         ...state,
         filter: action.payload,
       };
     case CLEAR_COMPLETED:
       let todoClear = [...state.todos];
-      todoClear = todos.filter(state.filters.active);
+      todoClear = todos.filter(state?.filters?.active);
       localStorage.setItem("todos", JSON.stringify(todoClear));
       console.log(todoClear);
       return {
